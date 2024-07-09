@@ -1,18 +1,18 @@
 ### Objective
 
-In this lab, I create an algorithm that uses Python code to check whether an “allow list” contains any IP addresses identified on a “remove list.” This file is “allow_list.txt” and allows access to resources only certain users should see based on IP address. While another list “remove_list.txt” tells us which IP addresses should be removed from the file containing the allow list.
+This project is a simple network port scanner implemented in Python. It uses the socket library to attempt connections to specified ports on target IP addresses, identifying which ports are open. The tool can handle both single and multiple targets and provides real-time feedback on the scan progress.
 
 ### Skills Learned
 
-- Create a python script utilizing basic python concepts.
-- Develop the script to have the ability to modify a file based on other files such as a list of IP addresses.
-- Use python file manipulation techniques.
+- Create a python script utilizing basic python concepts and use the socket library.
+- Develop the script to have the ability do a basic network scan.
+- Use a python library outside of the common ones.
 - Implement python methods to manipulate files based on other factors.
 - Use critical thinking and problem-solving skills to create the script and understand how methods can be used for file manipulation.
 
 ### Tools Used
 
-- Python3, methods and file manipulation.
+- Python3, methods and python library.
 - IP Addressing.
 
 ### Steps
@@ -21,25 +21,36 @@ Every screenshot should have some text explaining what the screenshot is about.
 Example below.
 *Ref 1: Network Diagram* -->
 - The steps for this project are outlined below on the project files sections detailing all aspects on the script.
-- The script is posted here but details on its funciont will be found on the [Python Script Solution](https://docs.google.com/document/d/1Vg0n8CG7fo4XjlLtFo3TBdFo_rmdoKl73xO-_W6G3Ok/edit?resourcekey=0-N6RGHlo2MpUrm1qi-0fnfQ) link.
+- The script is posted here but details on its funciont will be found on the [Python Basic Port Scanner](https://docs.google.com/document/d/1Vb8oog2Yl1GrESjKmwhsWng6FL1gjWxxVazeyE5emRU/edit?usp=sharing) link.
 
-import_file = "allow_list.txt"
+import socket
+import termcolor
 
-with open(import_file, "r") as file:
-ip_addresses = file.read()
-print(ip_addresses)
+def scan(target, ports):
+	print('\n' + ' Starting Scan For ' + str(target))
+	for port in range(1,ports):
+		scan_port(target,port)
 
-ip_addresses = ip_addresses.split()
-For element in remove_list:
-	If element in ip_addresses:
-		ip_addresses.remove(element)
-Ip_addresses = “\n”.join(ip_addresses)
+def scan_port(ipaddress, port):
+	try:
+		sock = socket.socket()
+		sock.connect((ipaddress, port))
+		print("[+] Port Opened " + str(port))
+		sock.close()
+	except:
+		pass
 
-With open(import_file, “w”) as file:
-	file.write(ip_addresses)
+targets = input("[*] Enter Targets To Scan(split them by ,): ")
+ports = int(input("[*] Enter How Many Ports You Want To Scan: "))
+if ',' in targets:
+	print(termcolor.colored(("[*] Scanning Multiple Targets"), 'green'))
+	for ip_addr in targets.split(','):
+		scan(ip_addr.strip(' '), ports)
+else:
+	scan(targets,ports)
 
 
 
 ### Project Files
 
-[Python Script Solution](https://docs.google.com/document/d/1Vg0n8CG7fo4XjlLtFo3TBdFo_rmdoKl73xO-_W6G3Ok/edit?resourcekey=0-N6RGHlo2MpUrm1qi-0fnfQ)
+[Python Basic Port Scanner](https://docs.google.com/document/d/1Vb8oog2Yl1GrESjKmwhsWng6FL1gjWxxVazeyE5emRU/edit?usp=sharing)
