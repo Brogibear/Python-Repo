@@ -21,7 +21,8 @@ Every screenshot should have some text explaining what the screenshot is about.
 Example below.
 *Ref 1: Network Diagram* -->
 - The steps for this project are outlined below on the project files sections detailing all aspects on the script.
-- The script is posted here but details on its funciont will be found on the [Python Basic Port Scanner](https://docs.google.com/document/d/1Vb8oog2Yl1GrESjKmwhsWng6FL1gjWxxVazeyE5emRU/edit?usp=sharing) link.
+- The script is posted here but details on its function will be found on the [Python Basic Port Scanner](https://docs.google.com/document/d/1Vb8oog2Yl1GrESjKmwhsWng6FL1gjWxxVazeyE5emRU/edit?usp=sharing) link.
+### Code:
 
 import socket
 import termcolor
