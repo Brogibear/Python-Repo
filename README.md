@@ -21,8 +21,8 @@ Every screenshot should have some text explaining what the screenshot is about.
 Example below.
 *Ref 1: Network Diagram* -->
 - The steps for this project are outlined below on the project files sections detailing all aspects on the script.
-- The script is posted here but details on its funciont will be found on the [Python Script Solution](https://docs.google.com/document/d/1Vg0n8CG7fo4XjlLtFo3TBdFo_rmdoKl73xO-_W6G3Ok/edit?resourcekey=0-N6RGHlo2MpUrm1qi-0fnfQ) link.
-
+- The script is posted here but details on its function will be found on the [Python Script Solution](https://docs.google.com/document/d/1Vg0n8CG7fo4XjlLtFo3TBdFo_rmdoKl73xO-_W6G3Ok/edit?resourcekey=0-N6RGHlo2MpUrm1qi-0fnfQ) link.
+### Code 
 import_file = "allow_list.txt"
 
 with open(import_file, "r") as file:
